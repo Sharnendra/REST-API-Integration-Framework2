@@ -14,10 +14,15 @@ import com.service.proxy.utility.ValidationUtils;
 public class TestController {
 	
 	@GetMapping("/validateJson")
-	public String Validate() throws ProcessingException, IOException
-	{
+	public String data() throws ProcessingException, IOException{
+		
 		File schemaFile = ResourceUtils.getFile("classpath:input-schema/schema.json");
-	    File jsonFile = ResourceUtils.getFile("classpath:input-schema/data.json");
+	    String jsonFile = "{\r\n" + 
+	    		"    \"id\": 1,\r\n" + 
+	    		"    \"name\": \"A green door\",\r\n" + 
+	    		"    \"price\": 12.50,\r\n" + 
+	    		"    \"tags\": [\"home\", \"green\"]\r\n" + 
+	    		"}";
 	    	
 	    if (ValidationUtils.isJsonValid(schemaFile, jsonFile)){
 	    	System.out.println("Valid!");
@@ -26,6 +31,5 @@ public class TestController {
 	    	System.out.println("NOT valid!");
 	    	return "NOT valid!";
 	    }
-	}
-
+    }
 }
