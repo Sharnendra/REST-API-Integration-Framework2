@@ -126,11 +126,24 @@ public class ValidationUtils {
         validateJson(schemaNode, jsonNode);
     } // validateJson(URL) ends
     
+    public static boolean isJsonValid(File schemaText, String jsonText) throws ProcessingException, IOException
+    {   
+        final JsonSchema schemaNode = getSchemaNode(schemaText);
+        final JsonNode jsonNode = getJsonNode(jsonText);
+        return isJsonValid(schemaNode, jsonNode);
+    } // validateJson(Node) ends
+    
     public static void validateJsonResource(String schemaResource, String jsonResource) throws IOException, ProcessingException{
         final JsonSchema schemaNode = getSchemaNode(schemaResource);
         final JsonNode jsonNode = getJsonNodeFromResource(jsonResource);
         validateJson(schemaNode, jsonNode);
     } // validateJsonResource() ends
+    
+    public static void validateJson(File schemaFile, String jsonText) throws IOException, ProcessingException{
+        final JsonSchema schemaNode = getSchemaNode(schemaFile);
+        final JsonNode jsonNode = getJsonNode(jsonText);
+        validateJson(schemaNode, jsonNode);
+    } // validateJson(text) ends
     
     private static JsonSchema _getSchemaNode(JsonNode jsonNode)
     throws ProcessingException
