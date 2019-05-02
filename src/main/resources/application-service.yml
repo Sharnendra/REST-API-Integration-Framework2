@@ -10,7 +10,7 @@ service:
         user,
         user1255
        inputSchemaFile: 
-       outputSchemaFile:
+       outputSchemaFile: output-schema
        inputValidationRequired : true
        outputValidationRequired : true
        requiredHeaders : [sharenendsa, vasodsdf]
