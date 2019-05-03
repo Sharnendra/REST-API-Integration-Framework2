@@ -3,15 +3,19 @@ package com.service.integration.testcontroller;
 import java.io.File;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.service.integration.utility.ValidationUtils;
+import com.service.integration.service.JSONValidationService;
 
 @RestController
 public class IntegrationTestController {
+	
+	@Autowired
+	private JSONValidationService jsonValidationService;
 	
 	@GetMapping("/validateJson")
 	public String data() throws ProcessingException, IOException{
@@ -24,7 +28,7 @@ public class IntegrationTestController {
 	    		"    \"tags\": [\"home\", \"green\"]\r\n" + 
 	    		"}";
 	    	
-	    if (ValidationUtils.isJsonValid(schemaFile, jsonFile)){
+	    if (jsonValidationService.isJsonValid(schemaFile, jsonFile)){
 	    	System.out.println("Valid!");
 	    	return "Valid!";
 	    }else{
