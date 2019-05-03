@@ -1,4 +1,4 @@
-package com.service.proxy.testcontroller;
+package com.service.integration.testcontroller;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.service.proxy.utility.ValidationUtils;
+import com.service.integration.utility.ValidationUtils;
 
 @RestController
-public class TestController {
+public class IntegrationTestController {
 	
 	@GetMapping("/validateJson")
 	public String data() throws ProcessingException, IOException{

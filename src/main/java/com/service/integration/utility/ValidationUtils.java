@@ -1,4 +1,4 @@
-package com.service.proxy.utility;
+package com.service.integration.utility;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.service.proxy.config;
+package com.service.integration.config;
 
 import java.util.ArrayList;
 import java.util.Arrays;
